@@ -26,8 +26,8 @@ class Review(models.Model):
         'Project', on_delete=models.SET_NULL, null=True)
     VOTE_TYPE = (
         ('up', 'Up Vote'),
-        ('Down', 'Down Vote',
-         ))
+        ('down', 'Down Vote'),
+    )
     body = models.TextField(null=True, blank=True)
     value = models.CharField(max_length=250, choices=VOTE_TYPE)
     created = models.DateTimeField(auto_now_add=True)

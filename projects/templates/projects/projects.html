@@ -1,20 +1,21 @@
-{% block content %}
-<h1>Project Template</h1>
+<table>
+    <tr>
+ 
+        <th>Project</th>
+        <th>Positive Votes</th>
+        <th>Votes</th>
+        <th></th>
+    </tr>
 
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut velit sem.
-    Aenean id pellentesque ligula.
-    Fusce laoreet ullamcorper diam eu faucibus.
-    Curabitur pharetra ac quam id rutrum. Aenean nec elit ac velit interdum
-    ullamcorper non quis massa. Etiam dui velit, laoreet in quam vitae, ultricies efficitur tellus.
-    Cras fringilla pretium lobortis. Pellentesque non augue porta, scelerisque augue a, tempus augue.
-    Aenean in mauris sed tellus ultrices fringilla.
-</p>
-
-<ul>
     {% for project in projects %}
-        <li>Title:<a href="/project/{{project.id}}"> {{ project.title }} </a>--- {{project.description}}</li>
+    <tr>
+      
+        <td>{{ project.title }}</td>
+        <td>{{ project.vote_ratio }}%</td>
+        <td>{{ project.vote_total }}</td>
+        <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+         <td><a href="{% url 'delete-project' project.id %}">Delet</a></td>
+         <td><a href="{% url 'project' project.id %}"> View</a> </td>
+    </tr>
     {% endfor %}
-</ul>
-
-{% endblock content %}
+</table>
